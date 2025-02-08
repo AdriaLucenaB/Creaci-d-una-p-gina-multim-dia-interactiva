@@ -121,18 +121,17 @@
             images.forEach(img => img.style.transform = 'scale(1)');
         });
 
-        // Canvi automàtic de pistes d'àudio
         const audio = document.getElementById('audio');
-        const sources = audio.getElementsByTagName('source'); // Obtener todas las fuentes de audio
-        let currentTrack = 0; // Empezamos con la primera pista
+        const sources = audio.getElementsByTagName('source'); 
+        let currentTrack = 0; 
 
-        audio.addEventListener('ended', () => { // Cuando una pista termine
-            currentTrack = (currentTrack + 1) % sources.length; // Cambia al siguiente, vuelve al principio al llegar al final
-            audio.src = sources[currentTrack].src; // Actualiza la fuente
-            audio.play(); // Reproduce la siguiente pista
+        audio.addEventListener('ended', () => { 
+            currentTrack = (currentTrack + 1) % sources.length; 
+            audio.src = sources[currentTrack].src;
+            audio.play(); 
         });
 
-        // Comienza con la primera pista
+       
         audio.src = sources[currentTrack].src;
         audio.play();
     </script>
